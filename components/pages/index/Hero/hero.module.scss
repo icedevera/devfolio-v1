@@ -1,0 +1,184 @@
+@import '/styles/global';
+
+.gridBox {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  grid-template-areas: 'txt cube';
+  column-gap: 20px;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.heroText {
+  grid-area: txt;
+}
+
+.topTags {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.bottomTags {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.tag {
+  color: $tersiaryText;
+  font-family: $fontCursive;
+  font-size: 20px;
+}
+
+.tagBody {
+  color: $tersiaryText;
+  font-family: $fontCursive;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.headingContainer {
+}
+
+.heading {
+  color: $primaryText;
+  font-family: $font;
+  font-size: 70px;
+  font-weight: 900;
+  margin: 10px 0;
+}
+
+.headingSpan {
+  display: block;
+}
+
+.subHeading {
+  color: $secondary;
+  font-family: $fontCode;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.cta {
+  position: relative;
+  outline: none;
+  width: 140px;
+  height: 50px;
+  background-color: $tersiary;
+  border-radius: 10px;
+  font-family: $font;
+  font-weight: 800;
+  font-size: 20px;
+  color: $primary;
+  cursor: pointer;
+  align-self: flex-end;
+  margin: 10px 0;
+  justify-self: flex-start;
+  transition: all 0.2s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 100;
+
+  &:active {
+    transform: scale(0.95);
+  }
+  &:hover {
+    border: 3px solid $tersiary;
+    background-color: transparent;
+    color: $primary;
+  }
+}
+
+.cube {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  grid-area: cube;
+}
+
+.figureTagOpen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: $tersiaryText;
+  font-family: $fontCursive;
+  font-size: 20px;
+}
+
+.figureTagClose {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: $tersiaryText;
+  font-family: $fontCursive;
+  font-size: 20px;
+}
+
+@media (max-width: 760px) {
+  .heading {
+    font-size: 40px;
+  }
+
+  .subHeading {
+    color: $secondary;
+    font-family: $fontCode;
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  .cta {
+    outline: none;
+    width: 110px;
+    height: 35px;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 550px) {
+  .gridBox {
+    height: calc(100vh - 120px);
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 1fr;
+    grid-template-areas:
+      'cube'
+      'txt';
+    padding: 20px;
+  }
+
+  .figureTagOpen {
+    display: none;
+  }
+
+  .figureTagClose {
+    display: none;
+  }
+
+  @media (max-height: 800px) {
+    .gridBox {
+      height: calc(800px - 120px);
+    }
+  }
+}
+
+@media (max-height: 670px) {
+  .gridBox {
+    height: 670px;
+  }
+}
